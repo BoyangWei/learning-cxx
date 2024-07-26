@@ -72,6 +72,7 @@ struct Tensor4D {
 
             for (size_t i = 0; i < broadcast_size; ++i) {
                 size_t this_index = 0, others_index = 0, temp = i;
+                //通过stride计算索引，也就是映射关系。广播后的tensor中的元素对应到广播的tensor中的元素
                 for (int j = 0; j < 4; ++j) {
                     size_t idx = temp / broadcast_stride[j];
                     temp %= broadcast_stride[j];
